@@ -43,7 +43,8 @@ class SBERTModel(pl.LightningModule):
         output2 = self.fc(output2.pooler_output)
         subtract = torch.sub(output1, output2)
         subtracted_dense = self.classifier(subtract)
-        output = torch.sigmoid(subtracted_dense)
+        # output = torch.sigmoid(subtracted_dense)
+        output = subtracted_dense
         loss = 0
         if labels is not None:
             print('label_shape:', labels.shape)
