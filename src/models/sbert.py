@@ -53,10 +53,6 @@ class SBERTModel(pl.LightningModule):
             loss = self.criterion(output, labels)
         return loss, output
 
-
-
-    xy_output = self.bert_module(xy_input_ids, xy_segment_ids, xy_input_mask, sep_idx=0)
-    output = torch.cat((xy_output, simanse_embedding), 1)  # [batch_size, hidden_size * 4]
     def training_step(self, batch, batch_idx):
         """
         :param batch:
