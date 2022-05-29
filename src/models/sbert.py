@@ -46,7 +46,10 @@ class SBERTModel(pl.LightningModule):
         output = torch.sigmoid(subtracted_dense)
         loss = 0
         if labels is not None:
-            print(labels.shape)
+            print('label_shape:', labels.shape)
+            print('output_shape:', output.shape)
+            print('label', labels)
+            print('output', output)
             loss = self.criterion(output, labels)
         return loss, output
 

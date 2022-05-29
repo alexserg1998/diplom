@@ -19,10 +19,6 @@ if __name__ == "__main__":
     CONFIG = CONFIG_CLASS.get_config()
     random_seed = CONFIG.random_seed
     pl.seed_everything(random_seed)
-    print(CONFIG.n_epochs)
-
-    print(CONFIG.saved_model_path)
-    print(CONFIG.language_model_tokenizer_path)
 
     tokenizer = BertTokenizer.from_pretrained(CONFIG.language_model_tokenizer_path)
     print("tokenizer loaded .... ")
