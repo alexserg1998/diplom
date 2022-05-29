@@ -34,7 +34,7 @@ if __name__ == "__main__":
                                                                 CONFIG.batch_size)
 
     print(f"total_training_steps : {total_training_steps} , warmup_steps : {warmup_steps} ")
-    model = SBERTModel(config=CONFIG, n_classes=2,
+    model = SBERTModel(config=CONFIG, n_classes=1,
                        n_warmup_steps=warmup_steps,
                        n_training_steps=total_training_steps,
                        )

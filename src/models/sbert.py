@@ -15,7 +15,7 @@ class SBERTModel(pl.LightningModule):
     def __init__(self, config,
                  n_warmup_steps: int = None,
                  n_training_steps: int = None,
-                 n_classes: int = 2):
+                 n_classes: int = 1):
         super().__init__()
         self.config = config
         self.bert = BertModel.from_pretrained(config.language_model_path, return_dict=True)
