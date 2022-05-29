@@ -26,7 +26,7 @@ class NegativeSamplingDataset(Dataset):
         data_row = self.data.iloc[index]
         sent1 = data_row['sentence_a']
         sent2 = data_row['sentence_b']
-        label = 1#data_row['label']
+        label = data_row['label']
 
         encoding1 = self.tokenizer.encode_plus(
 
