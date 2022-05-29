@@ -26,47 +26,32 @@ class NegativeSamplingDataset(Dataset):
         data_row = self.data.iloc[index]
         sent1 = data_row['sentence_a']
         sent2 = data_row['sentence_b']
-        label = data_row['label']
+        label = 1#data_row['label']
 
         encoding1 = self.tokenizer.encode_plus(
 
             sent1,
-
             add_special_tokens=True,
-
             max_length=self.max_token_len,
-
             return_token_type_ids=False,
-
             padding="max_length",
-
             truncation=True,
-
             return_attention_mask=True,
-
             return_tensors='pt',
 
         )
         encoding2 = self.tokenizer.encode_plus(
 
             sent2,
-
             add_special_tokens=True,
-
             max_length=self.max_token_len,
-
             return_token_type_ids=False,
-
             padding="max_length",
-
             truncation=True,
-
             return_attention_mask=True,
-
             return_tensors='pt',
 
         )
-
 
         return dict(
             input_ids1=encoding1["input_ids"].flatten(),
