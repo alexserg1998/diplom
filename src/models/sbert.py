@@ -47,8 +47,6 @@ class SBERTModel(pl.LightningModule):
         output = subtracted_dense
         loss = 0
         if labels is not None:
-            print(labels.shape)
-            print(labels)
             loss = self.criterion(output, labels)
         return loss, output
 
