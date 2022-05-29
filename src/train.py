@@ -23,7 +23,7 @@ if __name__ == "__main__":
     tokenizer = BertTokenizer.from_pretrained(CONFIG.language_model_tokenizer_path)
     print("tokenizer loaded .... ")
     print(CONFIG.train_data)
-    data = pd.read_csv(CONFIG.train_data)
+    data = pd.read_csv(CONFIG.train_data).sample(3000)
     train, val = train_test_split(data, test_size=0.05)
 
     data_module = NegativeSamplingDataModule(CONFIG, train, val, tokenizer,
