@@ -24,9 +24,9 @@ class NegativeSamplingDataset(Dataset):
 
     def __getitem__(self, index: int):
         data_row = self.data.iloc[index]
-        sent1 = data_row['question']
-        sent2 = data_row['sample']
-        label = [1] if data_row['label'] == "positive" else [0]
+        sent1 = data_row['sentence_a']
+        sent2 = data_row['sentence_b']
+        label = data_row['label']
 
         encoding1 = self.tokenizer.encode_plus(
 
